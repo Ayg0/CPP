@@ -13,13 +13,12 @@ void	add(Phonebook *phonebook, int *cont_i)
 	{
 		std::cout << phonebook->get_field(*cont_i, index);
 		std::getline(std::cin, s);
-		if (s.empty())
+		if (s.empty() || phonebook->set_contact(*cont_i, index, s))
 		{
 			if (!std::cin.fail())
-				std::cout << "can not be empty! " << std::endl;
+				std::cout << "invalid input ?!" << std::endl;
 			continue;
 		}
-		phonebook->set_contact(*cont_i, index, s);
 		index++;
 	}
 	(*cont_i)++;
@@ -57,24 +56,21 @@ void	search(Phonebook *pb)
 
 int	main()
 {
-	//std::string	s;
-	//Phonebook	phonebook;
-	//int			index;
-//
-	//index = 0;
-	//while (!std::cin.fail())
-	//{
-	//	std::cout << ">> ";
-	//	std::getline(std::cin, s);
-	//	if (s == "ADD")
-	//		add(&phonebook, &index);
-	//	else if (s == "SEARCH")
-	//		search(&phonebook);
-	//	else if (s == "EXIT")
-	//		return(0);
-	//	index %= 8;
-	//}
-	std::string l("okay my friend");
-	std::string r(l.begin(), l.begin() + 5);
-	std::cout << l << "//" << r << std::endl;
+	std::string	s;
+	Phonebook	phonebook;
+	int			index;
+
+	index = 0;
+	while (!std::cin.fail())
+	{
+		std::cout << ">> ";
+		std::getline(std::cin, s);
+		if (s == "ADD")
+			add(&phonebook, &index);
+		else if (s == "SEARCH")
+			search(&phonebook);
+		else if (s == "EXIT")
+			return(0);
+		index %= 8;
+	}
 }
