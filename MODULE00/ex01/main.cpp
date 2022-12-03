@@ -37,20 +37,39 @@ void handle_printing(Phonebook *pb, int cont_i, int i)
 	return;
 }
 
+int		show_options(Phonebook *pb)
+{
+	int	index;
+
+	index = 0;
+	std::cout << "|     Index|first Name| Last Name| Nick Name|" << std::endl;
+	while (!pb->get_contact(index, 0).empty() && index < 8)
+	{
+		std::cout << "|" << std::setw(10) << (index + 1) << "|";
+		for(int i = 0; i < 3; i++)
+			handle_printing(pb, index, i);
+		std::cout << std::endl;
+		index++;
+	}
+	return (index);
+}
+
 void	search(Phonebook *pb)
 {
 	int	cont_i;
+	std::string	nbr;
 
 	cont_i = 0;
-	std::cout << "|     Index|first Name| Last Name| Nick Name|" << std::endl;
-	while (!pb->get_contact(cont_i, 0).empty() && cont_i < 8)
-	{
-		std::cout << "|" << std::setw(10) << (cont_i + 1) << "|";
-		for(int i = 0; i < 3; i++)
-			handle_printing(pb, cont_i, i);
-		std::cout << std::endl;
-		cont_i++;
-	}
+	
+	cont_i = show_options(pb);
+	std::cout << ">>> ";
+	std::getline(std::cin, nbr);
+	if (nbr.size() == 1 && nbr[0] - 49 < cont_i && (nbr[0] -= 49) >= 0)
+		for(int i = 0; i < 5; i++)
+			std::cout << pb->get_field(nbr[0], i)
+				<< pb->get_contact(nbr[0], i) << std::endl;
+	else
+		std::cout << "Error" << std::endl;
 	return;
 }
 
