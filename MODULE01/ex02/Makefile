@@ -1,5 +1,5 @@
-NAME = zombie
-SRC = Zombie.cpp main.cpp zombieHorde.cpp
+NAME = ref
+SRC = main.cpp
 OBJ = ${SRC:.cpp=.o}
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
