@@ -1,10 +1,22 @@
 #include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int	main()
 {
-	Weapon club = Weapon("sword");
-	HumanA a = HumanA("Bob", club);
-	a.attack();
-	club.setType("spear");
-	a.attack();
+	{
+		Weapon koko = Weapon("sword");
+		HumanA Mainran("Mainran", koko);
+		Mainran.attack();
+		koko.setType("spear");
+		Mainran.attack();
+	}
+	{
+		Weapon club = Weapon("batata");
+		HumanB Jinrando("Jinrando");
+		//Jinrando.setWeapon(club);
+		Jinrando.attack();
+		club.setType("axe");
+		Jinrando.attack();
+	}
+return 0;
 }
