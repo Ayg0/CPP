@@ -16,11 +16,6 @@ std::string	&Weapon::getType()
 	return(type);
 }
 
-Weapon::Weapon()
-{
-	std::cout << "Default Constructor of the weapon Called" << std::endl;
-}
-
 Weapon::~Weapon()
 {
 	std::cout << "Destructor of the weapon Called" << std::endl;

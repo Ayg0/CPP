@@ -4,18 +4,19 @@
 int	main()
 {
 	{
-		Weapon koko = Weapon("sword");
-		HumanA Mainran("Mainran", koko);
-		Mainran.attack();
-		koko.setType("spear");
-		Mainran.attack();
+		Weapon club = Weapon("sword");
+		HumanA mornang("mornang", club);
+		mornang.attack();
+		club.setType("spear");
+		mornang.attack();
 	}
 	{
-		Weapon club = Weapon("batata");
+		Weapon club = Weapon("daggers");
 		HumanB Jinrando("Jinrando");
-		//Jinrando.setWeapon(club);
+		Jinrando.setWeapon(NULL);
 		Jinrando.attack();
-		club.setType("axe");
+		Jinrando.setWeapon(club);
+		club.setType("great axe");
 		Jinrando.attack();
 	}
 return 0;
