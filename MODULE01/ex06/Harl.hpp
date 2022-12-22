@@ -11,7 +11,7 @@ private:
 	void	error(void);
 	void	harlConfused(void);
 public:
-	void	complain(std::string level);
+	void	filter(std::string level);
 	//Harl();
 	//~Harl();
 };
