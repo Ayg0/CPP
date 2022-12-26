@@ -1,5 +1,14 @@
 #include "Harl.hpp"
 
+Harl::Harl(){
+	std::cout << "A new Harl came to the World ..." << std::endl;
+}
+
+Harl::~Harl(){
+	std::cout << "... Finally some rest from Harl"<< std::endl;
+}
+
+
 void	Harl::harlConfused(){
 	std::cout << "Harl got the extra bacon ? Harl confused ? what Harl think of now ?" << std::endl;
 }

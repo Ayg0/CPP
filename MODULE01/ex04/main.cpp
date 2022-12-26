@@ -20,9 +20,10 @@ void	write_to_file(std::string str, char **av){
 
 int main(int ac, char **av) {
 
-	if (ac != 4 || !strlen(av[2]))
-		return (1);
+	if (ac != 4 || !strlen(av[2])){
+		std::cout << "invalid arguments" << std::endl;
+		return (1);	
+	}
 	std::string str = read_file(av[1]);
 	write_to_file(str, av);
-	system("leaks sed");
 }

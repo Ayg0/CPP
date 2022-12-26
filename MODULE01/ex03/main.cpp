@@ -13,7 +13,7 @@ int	main()
 	{
 		Weapon club = Weapon("daggers");
 		HumanB Jinrando("Jinrando");
-		Jinrando.setWeapon(NULL);
+	//	Jinrando.setWeapon(NULL);
 		Jinrando.attack();
 		Jinrando.setWeapon(club);
 		club.setType("great axe");

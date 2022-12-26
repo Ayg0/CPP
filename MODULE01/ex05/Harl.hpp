@@ -12,7 +12,7 @@ private:
 	void	harlConfused(void);
 public:
 	void	complain(std::string level);
-	//Harl();
-	//~Harl();
+	Harl();
+	~Harl();
 };
 #endif
