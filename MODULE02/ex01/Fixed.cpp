@@ -5,6 +5,21 @@ Fixed::Fixed(){
     std::cout << "default Constructor Called." << std::endl;
 }
 
+Fixed::Fixed(const int a){
+    std::cout << "Copy Constructor Called." << std::endl;
+    setRawBits(a);
+}
+
+Fixed::Fixed(const float a){
+
+}
+float Fixed::toFloat( void ) const{
+
+}
+int Fixed::toInt( void ) const{
+
+}
+
 Fixed::Fixed(const Fixed &a){
     std::cout << "Copy Constructor Called." << std::endl;
     this->nu_value = a.getRawBits();
