@@ -6,18 +6,22 @@ Fixed::Fixed(){
 }
 
 Fixed::Fixed(const int a){
-    std::cout << "Copy Constructor Called." << std::endl;
-    setRawBits(a);
+	
+    std::cout << "Int Constructor Called." << std::endl;
+    setRawBits(a * (1 << bits));
 }
 
 Fixed::Fixed(const float a){
-
+    std::cout << "Float Constructor Called." << std::endl;
+	setRawBits(roundf(a * (1 << bits)));
 }
+
 float Fixed::toFloat( void ) const{
-
+	return (nu_value / (float(1 << bits)));
 }
-int Fixed::toInt( void ) const{
 
+int Fixed::toInt( void ) const{
+	return (nu_value >> bits);
 }
 
 Fixed::Fixed(const Fixed &a){
