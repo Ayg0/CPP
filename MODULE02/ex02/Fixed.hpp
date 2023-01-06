@@ -11,11 +11,15 @@ public:
 	Fixed();
 	Fixed(const int a);
 	Fixed(const float a);
-	float toFloat( void ) const;
-	int toInt( void ) const;
 	Fixed(const Fixed &a);
-	Fixed	&operator = (const Fixed &a);
+	float 	toFloat( void ) const;
+	int		toInt( void ) const;
 	int		getRawBits(void) const;
+	static Fixed	&min(Fixed &a, Fixed &b);
+	static Fixed	&max(Fixed &a, Fixed &b);
+	static const Fixed	&min(const Fixed &a, const Fixed &b);
+	static const Fixed	&max(const Fixed &a, const Fixed &b);
+	Fixed	&operator = (const Fixed &a);
 	void	setRawBits(int const raw);
 	bool	operator > (const Fixed &a);
 	bool	operator < (const Fixed &a);
@@ -27,6 +31,10 @@ public:
 	Fixed	operator - (const Fixed &a) const;
 	Fixed	operator * (const Fixed &a) const;
 	Fixed	operator / (const Fixed &a) const;
+	Fixed	&operator ++ ();
+	Fixed	&operator -- ();
+	Fixed	operator ++ (int);
+	Fixed	operator -- (int);
 	~Fixed();
 };
 
