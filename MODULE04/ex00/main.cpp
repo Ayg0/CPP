@@ -12,5 +12,9 @@ int main(){
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
+	
+	delete meta;
+	delete i;
+	delete j;
 	return 0;
 }

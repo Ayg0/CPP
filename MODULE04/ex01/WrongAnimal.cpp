@@ -34,7 +34,7 @@ std::string WrongAnimal::getType() const
 }
 
 void	WrongAnimal::makeSound() const{
-	std::cout << "What noise \?" << std::endl;
+	std::cout << "unrecognizable noise ..." << std::endl;
 }
 
 WrongCat::WrongCat()
@@ -62,5 +62,5 @@ WrongCat & WrongCat::operator=(const WrongCat &assign)
 }
 
 void	WrongCat::makeSound() const{
-	std::cout << "Wrong meow meow \?\?!" << std::endl;
+	std::cout << "Wrong mew mew \?\?!" << std::endl;
 }
