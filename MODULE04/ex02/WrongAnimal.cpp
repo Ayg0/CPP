@@ -33,10 +33,6 @@ std::string WrongAnimal::getType() const
 	return type;
 }
 
-void	WrongAnimal::makeSound() const{
-	std::cout << "unrecognizable noise ..." << std::endl;
-}
-
 WrongCat::WrongCat()
 {
 	this->type = "WrongCat";
