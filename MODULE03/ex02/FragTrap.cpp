@@ -3,7 +3,7 @@
 FragTrap::FragTrap(){
 	set_hit_points(100);
 	set_energy_points(100);
-	set_attack_points(0);
+	set_attack_points(30);
 	std::cout << "Default FragTrap Constructor Called." << std::endl;
 }
 FragTrap   &FragTrap::operator = (const FragTrap &a){

@@ -7,7 +7,6 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 		c++ $(OBJ) $(CPPFLAGS) -o $(NAME)
-		make clean
 clean:
 	rm -rf $(OBJ)
 fclean:	clean

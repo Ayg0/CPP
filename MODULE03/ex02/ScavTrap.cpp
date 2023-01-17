@@ -2,8 +2,8 @@
 
 ScavTrap::ScavTrap(){
 	set_hit_points(100);
-	set_energy_points(100);
-	set_attack_points(0);
+	set_energy_points(50);
+	set_attack_points(20);
 	std::cout << "Default ScavTrap Constructor Called." << std::endl;
 }
 ScavTrap   &ScavTrap::operator = (const ScavTrap &a){
@@ -18,8 +18,8 @@ ScavTrap::ScavTrap(const ScavTrap &a){
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	set_hit_points(100);
-	set_energy_points(100);
-	set_attack_points(30);
+	set_energy_points(50);
+	set_attack_points(20);
 	std::cout << "ScavTrap Constructor Called." << std::endl;
 }
 
