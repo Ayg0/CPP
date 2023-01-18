@@ -1,5 +1,5 @@
 NAME = bureaucrat
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = ${SRC:.cpp=.o}
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 

@@ -2,6 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -14,6 +15,7 @@ public:
 	Bureaucrat(const Bureaucrat &copy);
 	std::string	getName() const;
 	int			getGrade() const;
+	void		signForm(class Form &Form);
 	Bureaucrat &operator=(const Bureaucrat &assign);
 	~Bureaucrat();
 	class GradeTooHighException : public std::exception{
@@ -23,5 +25,7 @@ public:
 		const char* what() const throw();
 	};
 };
+
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& bu);
 
 #endif

@@ -1,18 +1,17 @@
 #include "Bureaucrat.hpp"
 
-std::ostream& operator<<(std::ostream& stream, const Bureaucrat& bu)
-{
-    stream << bu.getName() << ", bureaucrat grade " << bu.getGrade();
-    return (stream);
-}
-
 int	main(){
 	try{
-		Bureaucrat l("Norji", 150);
-		Bureaucrat s("Mayro", 1);
-		
+		Bureaucrat	l("Norji", 150);
+		Bureaucrat	s("Mayro", 1);
+		Form		f("OK", 5, 140);
+
+		s.signForm(f);
+		l.signForm(f);
+		//f.beSigned(l);
 		std::cout << l << std::endl;
 		std::cout << s << std::endl;
+		std::cout << f << std::endl;
 	}
 	catch (const std::exception& e) {
     	std::cerr << e.what() << std::endl;
