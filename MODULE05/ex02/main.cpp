@@ -8,7 +8,7 @@ int	main(){
 
 		s.signForm(f);
 		l.signForm(f);
-	//	f.beSigned(l);
+		//f.beSigned(l);
 		std::cout << l << std::endl;
 		std::cout << s << std::endl;
 		std::cout << f << std::endl;
