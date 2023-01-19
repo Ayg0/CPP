@@ -6,7 +6,7 @@
 /*   By: ted-dafi <ted-dafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:24:05 by ted-dafi          #+#    #+#             */
-/*   Updated: 2023/01/09 11:45:33 by ted-dafi         ###   ########.fr       */
+/*   Updated: 2023/01/19 18:56:57 by ted-dafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	name;
 		int			hit_points;
 		int			energy_points;
@@ -29,12 +29,6 @@ class ClapTrap
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		void	set_energy_points(int nu);
-		void	set_hit_points(int nu);
-		void	set_attack_points(int nu);
-		int		get_energy_points(void) const;
-		int		get_hit_points(void) const;
-		int		get_attack_points(void) const;
 		~ClapTrap();
 };
 

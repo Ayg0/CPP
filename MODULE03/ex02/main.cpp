@@ -1,12 +1,11 @@
 #include "ScavTrap.hpp"
-#include "FragTrap.hpp"
 
 int	main(){
-	ClapTrap l("Yano");
-	ScavTrap d("yara");
+	ClapTrap l("ok");
+	ScavTrap d("33");
+	ScavTrap r;
+
+	std::cout << r.get_attack_points() << std::endl;
+	std::cout << r.get_attack_points() << std::endl;
 	d.guardGate();
-	FragTrap n("Jiro");
-	n.highFivesGuys();
-	n.attack("yara");
-	d.takeDamage(10);
 }

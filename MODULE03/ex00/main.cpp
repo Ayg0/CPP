@@ -14,11 +14,4 @@ int	main(){
 	l.attack("wow");
 	l.beRepaired(1);
 	l.attack("wow");
-	
-	//l.attack("wow");
-	//l.attack("wow");
-	//l.attack("wow");
-	//l.attack("wow");
-	//l.attack("wow");
-	//l.attack("wow");
 }

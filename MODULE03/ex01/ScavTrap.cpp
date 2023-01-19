@@ -1,25 +1,27 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(){
-	set_hit_points(100);
-	set_energy_points(50);
-	set_attack_points(20);
+	this->hit_points = 100;
+	this->energy_points = 50;
+	this->attack_damage = 20;
 	std::cout << "Default ScavTrap Constructor Called." << std::endl;
 }
+
 ScavTrap   &ScavTrap::operator = (const ScavTrap &a){
-	this->set_hit_points(a.get_hit_points());
-	this->set_energy_points(a.get_energy_points());
-	this->set_attack_points(a.get_attack_points());
+	this->hit_points = a.hit_points;
+	this->attack_damage = a.attack_damage;
+	this->energy_points = a.energy_points;
 	return (*this);
 }
+
 ScavTrap::ScavTrap(const ScavTrap &a){
 	*this = a;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
-	set_hit_points(100);
-	set_energy_points(50);
-	set_attack_points(20);
+ScavTrap::ScavTrap(std::string name):ClapTrap(name){
+	this->hit_points = 100;
+	this->energy_points = 50;
+	this->attack_damage = 20;
 	std::cout << "ScavTrap Constructor Called." << std::endl;
 }
 
