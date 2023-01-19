@@ -9,7 +9,7 @@ std::ostream &operator << (std::ostream &os, const Fixed &a)
 int main( void ) {
 	Fixed a;
 	Fixed const b( Fixed( 5.5f ) * Fixed( 3 ) );
-	//Fixed c(3);
+	//Fixed c(3);r
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
