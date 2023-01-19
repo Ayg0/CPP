@@ -1,15 +1,15 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(){
-	set_hit_points(100);
-	set_energy_points(100);
-	set_attack_points(30);
+	this->hit_points = 100;
+	this->energy_points = 100;
+	this->attack_damage = 30;
 	std::cout << "Default FragTrap Constructor Called." << std::endl;
 }
 FragTrap   &FragTrap::operator = (const FragTrap &a){
-	this->set_hit_points(a.get_hit_points());
-	this->set_energy_points(a.get_energy_points());
-	this->set_attack_points(a.get_attack_points());
+	this->hit_points = a.hit_points;
+	this->attack_damage = a.attack_damage;
+	this->energy_points = a.energy_points;
 	return (*this);
 }
 FragTrap::FragTrap(const FragTrap &a){
@@ -17,9 +17,9 @@ FragTrap::FragTrap(const FragTrap &a){
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-	set_hit_points(100);
-	set_energy_points(100);
-	set_attack_points(30);
+	this->hit_points = 100;
+	this->energy_points = 100;
+	this->attack_damage = 30;
 	std::cout << "FragTrap Constructor Called." << std::endl;
 }
 
