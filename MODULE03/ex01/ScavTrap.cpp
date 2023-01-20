@@ -8,6 +8,7 @@ ScavTrap::ScavTrap(){
 }
 
 ScavTrap   &ScavTrap::operator = (const ScavTrap &a){
+	this->name = a.name;
 	this->hit_points = a.hit_points;
 	this->attack_damage = a.attack_damage;
 	this->energy_points = a.energy_points;
