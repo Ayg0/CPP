@@ -2,10 +2,11 @@
 
 int	main(){
 	ClapTrap l("ok");
-	ScavTrap d("33");
-	ScavTrap r;
+	ScavTrap d("f");
+	ScavTrap r(d);
 
-	std::cout << r.get_attack_points() << std::endl;
-	std::cout << r.get_attack_points() << std::endl;
+	r.attack("ee");
+	l.attack("r");
+	r.beRepaired(1);
 	d.guardGate();
 }

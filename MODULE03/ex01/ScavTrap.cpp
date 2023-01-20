@@ -14,6 +14,15 @@ ScavTrap   &ScavTrap::operator = (const ScavTrap &a){
 	return (*this);
 }
 
+void	ScavTrap::attack(const std::string& target){
+		if (!energy_points || hit_points <= 0){
+		std::cout << this->name <<  "can't do any action. "<< std::endl;
+		return ;
+	}
+	std::cout << "The ScavTrap " << this->name << " atacked " << target << ", resulted in " << this->attack_damage << " damage points." << std::endl;
+	energy_points--;
+}
+
 ScavTrap::ScavTrap(const ScavTrap &a){
 	*this = a;
 }
