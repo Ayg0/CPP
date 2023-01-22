@@ -8,9 +8,9 @@ class Dog: public Animal
 	public:
 		Dog();
 		Dog(const Dog &copy);
-		~Dog();
-		void	makeSound() const;
 		Dog & operator=(const Dog &assign);		
+		void	makeSound() const;
+		~Dog();
 	private:
 		
 };

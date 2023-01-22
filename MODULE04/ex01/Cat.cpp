@@ -2,13 +2,14 @@
 
 Cat::Cat()
 {
-	brain = new Brain();
 	this->type = "Cat";
 	std::cout << "Default Constructor called of Cat" << std::endl;
+	brain = new Brain();
 }
 
 Cat::Cat(const Cat &copy)
 {
+	brain = NULL;
 	*this = copy;
 	std::cout << "Copy Constructor called of Cat" << std::endl;
 }
@@ -22,7 +23,9 @@ Cat::~Cat()
 Cat & Cat::operator=(const Cat &assign)
 {
 	type = assign.type;
-	brain = assign.brain;
+	if (!brain)
+		brain = new Brain;
+	brain->operator=(*assign.brain);
 	std::cout << "Assignement opperator of Cat called" << std::endl;
 	return *this;
 }
