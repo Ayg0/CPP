@@ -20,7 +20,7 @@ public:
 	int	getReqExec() const;
 	void		setIsSigned();
 	bool		isSigned() const;
-	void		beSigned(class Bureaucrat &bu);
+	virtual void		beSigned(class Bureaucrat &bu) = 0;
 	Form &operator=(const Form &assign);
 	~Form();
 	class GradeTooHighException : public std::exception{
