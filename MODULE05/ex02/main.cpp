@@ -1,17 +1,22 @@
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main(){
 	try{
-		Bureaucrat	l("Norji", 150);
 		Bureaucrat	s("Mayro", 1);
-		Form		f("OK", 5, 140);
+		ShrubberyCreationForm	a("Potato");
+		RobotomyRequestForm	b("Potato");
+		PresidentialPardonForm	c("Potato");
 
-		s.signForm(f);
-		l.signForm(f);
-		//f.beSigned(l);
-		std::cout << l << std::endl;
-		std::cout << s << std::endl;
-		std::cout << f << std::endl;
+		s.signForm(a);
+		s.signForm(b);
+		s.signForm(c);
+		//l.signForm(f);
+		a.execute(s);
+		b.execute(s);
+		c.execute(s);
 	}
 	catch (const std::exception& e) {
     	std::cerr << e.what() << std::endl;

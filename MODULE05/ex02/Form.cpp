@@ -2,15 +2,16 @@
 
 Form::Form():name("NONAME"), req_sign(150), req_exec(150){
 	is_sign = 0;
+	target = "UnknownTarget";
 	std::cout << "Default Constructor of Form called." << std::endl;
 }
 
-Form::Form(const Form &copy):name(copy.getName()), req_sign(copy.getReqSign()), req_exec(copy.getReqExec()){
+Form::Form(const Form &copy):name(copy.getName()), req_sign(copy.getReqSign()), req_exec(copy.getReqExec()), target(copy.target){
 	is_sign = 0;
 	std::cout << "Copy Constructor of Form called." << std::endl;
 }
 
-Form::Form(std::string name, int req_sign, int req_exec):name(name), req_sign(req_sign), req_exec(req_exec){
+Form::Form(std::string name,std::string target, int req_sign, int req_exec):name(name), req_sign(req_sign), req_exec(req_exec), target(target){
 	is_sign = 0;
 	std::cout << "Constructor of Form called." << std::endl;
 }
@@ -29,6 +30,14 @@ int	Form::getReqSign() const{
 
 int	Form::getReqExec() const{
 	return (req_exec);
+}
+
+std::string	Form::getTarget() const{
+	return (target);
+}
+
+void	Form::setTarget(std::string target){
+	this->target = target;
 }
 
 void	Form::setIsSigned(){
