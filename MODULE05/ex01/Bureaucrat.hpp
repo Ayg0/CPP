@@ -15,6 +15,8 @@ public:
 	Bureaucrat(const Bureaucrat &copy);
 	std::string	getName() const;
 	int			getGrade() const;
+	void		increment(void);
+	void		decrement(void);
 	void		signForm(class Form &Form);
 	Bureaucrat &operator=(const Bureaucrat &assign);
 	~Bureaucrat();

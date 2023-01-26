@@ -14,15 +14,16 @@ private:
 public:
 	Form();
 	Form(std::string name, int req_sign, int req_exec);
-	Form(const Form &copy);
-	std::string	getName() const;
-	int	getReqSign() const;
-	int	getReqExec() const;
-	void		setIsSigned();
-	bool		isSigned() const;
-	void		beSigned(class Bureaucrat &bu);
 	Form &operator=(const Form &assign);
+	Form(const Form &copy);
 	~Form();
+
+	std::string	getName() const;
+	int			getReqSign() const;
+	int			getReqExec() const;
+	bool		isSigned() const;
+	void		setIsSigned();
+	void		beSigned(class Bureaucrat &bu);
 	class GradeTooHighException : public std::exception{
 		const char* what() const throw();
 	};

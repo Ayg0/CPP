@@ -15,7 +15,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy):
 	std::cout << "ShrubberyCreationForm Copy Destructor Called." << std::endl;
 }
 
-void	ShrubberyCreationForm::WriteAsciiTrees() const{
+void	ShrubberyCreationForm::writeAsciiTrees() const{
 	std::ofstream	newfile(getTarget() + "_shrubbery");
 	if (!newfile.is_open())
 		throw	std::runtime_error("Couldn't open the file.");
@@ -45,5 +45,5 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
 	if (executor.getGrade() > this->getReqExec())
 		throw	GradeTooLowException();
 	else
-		WriteAsciiTrees();
+		writeAsciiTrees();
 }

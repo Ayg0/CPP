@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat():name("NONAME"){
 	std::cout << "Default Constructor of Bureaucrat called." << std::endl;
-	grade = 3;
+	grade = 150;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw(){
@@ -21,16 +21,32 @@ Bureaucrat::Bureaucrat(std::string name, int grade):name(name){
 	this->grade = grade;
 	std::cout << "Constructor of Bureaucrat called." << std::endl;
 }
-Bureaucrat::Bureaucrat(const Bureaucrat &copy){
+
+void		 Bureaucrat::increment(void){
+		if (grade == 1)
+			throw GradeTooHighException();
+		grade--;
+}
+
+void		 Bureaucrat::decrement(void){
+		if (grade == 150)
+			throw GradeTooLowException();
+		grade++;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &copy):name(copy.getName()){
 	std::cout << "Copy Constructor of Bureaucrat called." << std::endl;
 	*this = copy;
 }
+
 std::string	Bureaucrat::getName() const{
 	return (name);
 }
+
 int			Bureaucrat::getGrade() const{
 	return (grade);
 }
+
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assign){
 	std::cout << "Copy assignement of Bureaucrat called." << std::endl;
 	grade = assign.grade;

@@ -13,11 +13,13 @@ public:
 	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat &copy);
+	Bureaucrat &operator=(const Bureaucrat &assign);
+	~Bureaucrat();
+
 	std::string	getName() const;
 	int			getGrade() const;
 	void		signForm(class Form &Form);
-	Bureaucrat &operator=(const Bureaucrat &assign);
-	~Bureaucrat();
+	void		execute(Form const &Form);
 	class GradeTooHighException : public std::exception{
 		const char* what() const throw();
 	};

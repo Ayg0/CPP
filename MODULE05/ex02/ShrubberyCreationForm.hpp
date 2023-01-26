@@ -13,7 +13,7 @@ class ShrubberyCreationForm : public Form
 		~ShrubberyCreationForm();
 
 		void	execute(Bureaucrat const &executor) const;
-		void	WriteAsciiTrees() const;
+		void	writeAsciiTrees() const;
 };
 
 #endif

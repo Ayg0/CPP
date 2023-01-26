@@ -9,9 +9,11 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& bu)
 int	main(){
 	try{
 		Bureaucrat l("Norji", 150);
-		Bureaucrat s("Mayro", 1);
+		Bureaucrat s(Bureaucrat("k", 2));
 		
+		l.increment();
 		std::cout << l << std::endl;
+		s.increment();
 		std::cout << s << std::endl;
 	}
 	catch (const std::exception& e) {

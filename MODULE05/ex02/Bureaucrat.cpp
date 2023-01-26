@@ -52,6 +52,15 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assign){
 	return (*this);
 }
 
+void		Bureaucrat::execute(Form const &Form){
+	if (!Form.isSigned())
+		std::cerr << "The Form isn't signed." << std::endl;
+	else if (grade > Form.getReqExec())
+		std::cerr << "Grade too low to execute." << std::endl;
+	else
+		Form.execute(*this);
+}
+
 Bureaucrat::~Bureaucrat(){
 	std::cout << "Default Destructor of Bureaucrat called." << std::endl;
 }

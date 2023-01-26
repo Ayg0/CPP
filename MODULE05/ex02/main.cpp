@@ -14,6 +14,7 @@ int	main(){
 		s.signForm(b);
 		s.signForm(c);
 		//l.signForm(f);
+		s.execute(b);
 		a.execute(s);
 		b.execute(s);
 		c.execute(s);

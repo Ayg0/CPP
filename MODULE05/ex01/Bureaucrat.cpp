@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat():name("NONAME"){
 	std::cout << "Default Constructor of Bureaucrat called." << std::endl;
-	grade = 3;
+	grade = 150;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw(){
@@ -22,6 +22,18 @@ Bureaucrat::Bureaucrat(std::string name, int grade):name(name){
 	std::cout << "Constructor of Bureaucrat called." << std::endl;
 }
 
+void		 Bureaucrat::increment(void){
+		if (grade == 1)
+			throw GradeTooHighException();
+		grade--;
+}
+
+void		 Bureaucrat::decrement(void){
+		if (grade == 150)
+			throw GradeTooLowException();
+		grade++;
+}
+
 void		Bureaucrat::signForm(class Form &Form){
 	if (Form.isSigned())
 		std::cout << name << " couldn't sign " << Form.getName() << ", because Form is already signed." << std::endl;
@@ -33,7 +45,7 @@ void		Bureaucrat::signForm(class Form &Form){
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy){
+Bureaucrat::Bureaucrat(const Bureaucrat &copy):name(copy.name){
 	std::cout << "Copy Constructor of Bureaucrat called." << std::endl;
 	*this = copy;
 }
