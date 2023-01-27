@@ -22,6 +22,18 @@ Bureaucrat::Bureaucrat(std::string name, int grade):name(name){
 	std::cout << "Constructor of Bureaucrat called." << std::endl;
 }
 
+void		 Bureaucrat::increment(void){
+	if (grade == 1)
+		throw GradeTooHighException();
+	grade--;
+}
+
+void		 Bureaucrat::decrement(void){
+	if (grade == 150)
+		throw GradeTooLowException();
+	grade++;
+}
+
 void		Bureaucrat::signForm(class Form &form){
 	if (form.isSigned())
 		std::cout << name << " couldn't sign " << form.getName() << ", because Form is already signed." << std::endl;

@@ -33,6 +33,18 @@ void		Bureaucrat::signForm(class Form &form){
 	}
 }
 
+void		 Bureaucrat::increment(void){
+	if (grade == 1)
+		throw GradeTooHighException();
+	grade--;
+}
+
+void		 Bureaucrat::decrement(void){
+	if (grade == 150)
+		throw GradeTooLowException();
+	grade++;
+}
+
 Bureaucrat::Bureaucrat(const Bureaucrat &copy){
 	std::cout << "Copy Constructor of Bureaucrat called." << std::endl;
 	*this = copy;
