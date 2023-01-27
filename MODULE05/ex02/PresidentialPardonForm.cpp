@@ -1,9 +1,9 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm():Form("PresidentialPardonForm", "UnknownTarget", 145, 137){
+PresidentialPardonForm::PresidentialPardonForm():Form("PresidentialPardonForm", "UnknownTarget", 25, 5){
 	std::cout << "PresidentialPardonForm Default Constructor Called." << std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string target):Form("PresidentialPardonForm", target, 145, 137){
+PresidentialPardonForm::PresidentialPardonForm(std::string target):Form("PresidentialPardonForm", target, 25, 5){
 	std::cout << "PresidentialPardonForm Default Constructor Called." << std::endl;
 }
 PresidentialPardonForm::~PresidentialPardonForm(){
@@ -11,7 +11,8 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy):Form(copy.getName(), copy.getTarget(), copy.getReqExec(), copy.getReqExec()){
-	this->operator=(copy);
+	if (copy.isSigned())
+		this->setIsSigned();
 	std::cout << "PresidentialPardonForm Copy Destructor Called." << std::endl;
 }
 

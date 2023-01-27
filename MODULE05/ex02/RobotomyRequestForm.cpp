@@ -1,9 +1,9 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm():Form("RobotomyRequestForm", "UnknownTarget", 145, 137){
+RobotomyRequestForm::RobotomyRequestForm():Form("RobotomyRequestForm", "UnknownTarget", 72, 45){
 	std::cout << "RobotomyRequestForm Default Constructor Called." << std::endl;
 }
-RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("RobotomyRequestForm", target, 145, 137){
+RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("RobotomyRequestForm", target, 72, 45){
 	std::cout << "RobotomyRequestForm Default Constructor Called." << std::endl;
 }
 RobotomyRequestForm::~RobotomyRequestForm(){
@@ -11,7 +11,8 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(copy.getName(), copy.getTarget(), copy.getReqExec(), copy.getReqExec()){
-	this->operator=(copy);
+	if (copy.isSigned())
+		this->setIsSigned();
 	std::cout << "RobotomyRequestForm Copy Destructor Called." << std::endl;
 }
 
@@ -28,9 +29,7 @@ void	RobotomyRequestForm::inform() const{
 	if (rand() % 2)
 		std::cout << getTarget() + " has been robotomized successfully." << std::endl;
 	else
-		std::cout << getTarget() + " has failed to be robotomized." << std::endl;
-		
-		
+		std::cout << getTarget() + " has failed to be robotomized." << std::endl;		
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{

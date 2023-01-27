@@ -22,14 +22,14 @@ Bureaucrat::Bureaucrat(std::string name, int grade):name(name){
 	std::cout << "Constructor of Bureaucrat called." << std::endl;
 }
 
-void		Bureaucrat::signForm(class Form &Form){
-	if (Form.isSigned())
-		std::cout << name << " couldn't sign " << Form.getName() << ", because Form is already signed." << std::endl;
-	else if (grade > Form.getReqSign())
-		std::cout << name << " couldn't sign " << Form.getName() << ", because Grade is too low." << std::endl;
+void		Bureaucrat::signForm(class Form &form){
+	if (form.isSigned())
+		std::cout << name << " couldn't sign " << form.getName() << ", because Form is already signed." << std::endl;
+	else if (grade > form.getReqSign())
+		std::cout << name << " couldn't sign " << form.getName() << ", because Grade is too low." << std::endl;
 	else{
-		std::cout << name << " signed " << Form.getName() << std::endl;
-		Form.setIsSigned();
+		std::cout << name << " signed " << form.getName() << std::endl;
+		form.setIsSigned();
 	}
 }
 
@@ -52,13 +52,13 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assign){
 	return (*this);
 }
 
-void		Bureaucrat::execute(Form const &Form){
-	if (!Form.isSigned())
+void		Bureaucrat::execute(Form const &form){
+	if (!form.isSigned())
 		std::cerr << "The Form isn't signed." << std::endl;
-	else if (grade > Form.getReqExec())
+	else if (grade > form.getReqExec())
 		std::cerr << "Grade too low to execute." << std::endl;
 	else
-		Form.execute(*this);
+		form.execute(*this);
 }
 
 Bureaucrat::~Bureaucrat(){

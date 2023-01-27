@@ -17,7 +17,7 @@ public:
 	Form(std::string name, std::string target, int req_sign, int req_exec);
 	Form(const Form &copy);
 	Form &operator=(const Form &assign);
-	~Form();
+	virtual ~Form();
 
 	std::string	getName() const;
 	std::string	getTarget() const;

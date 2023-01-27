@@ -11,7 +11,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy):Form(copy.getName(), copy.getTarget(), copy.getReqExec(), copy.getReqExec()){
-	this->operator=(copy);
+	if (copy.isSigned())
+		this->setIsSigned();
 	std::cout << "ShrubberyCreationForm Copy Destructor Called." << std::endl;
 }
 

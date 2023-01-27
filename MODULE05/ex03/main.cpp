@@ -11,14 +11,14 @@ int	main(){
 		b = i.makeForm("robotomy request", "ss");
 		c = i.makeForm("presidential pardon", "ss");
 		d = i.makeForm("IDWADWADA", "dasdds");
-		//s.signForm(a);
-		//s.signForm(b);
-		//s.signForm(c);
+		s.signForm(*a);
+		s.signForm(*b);
+		s.signForm(*c);
 
-		//s.execute(b);
-		//a.execute(s);
-		//b.execute(s);
-		//c.execute(s);
+		s.execute(*b);
+		a->execute(s);
+		b->execute(s);
+		c->execute(s);
 		std::cout << "----------------------- delete ----------------------" << std::endl;
 		//delete d;
 		delete a;

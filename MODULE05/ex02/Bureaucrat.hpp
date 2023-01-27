@@ -18,8 +18,8 @@ public:
 
 	std::string	getName() const;
 	int			getGrade() const;
-	void		signForm(class Form &Form);
-	void		execute(Form const &Form);
+	void		signForm(class Form &form);
+	void		execute(Form const &form);
 	class GradeTooHighException : public std::exception{
 		const char* what() const throw();
 	};
