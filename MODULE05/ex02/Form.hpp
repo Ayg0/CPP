@@ -23,9 +23,10 @@ public:
 	std::string	getTarget() const;
 	int			getReqSign() const;
 	int			getReqExec() const;
+	bool		isSigned() const;
+
 	void				setTarget(std::string target);
 	void				setIsSigned();
-	bool				isSigned() const;
 	void				beSigned(class Bureaucrat &bu);
 	virtual	void		execute(Bureaucrat const &executor) const = 0;
 

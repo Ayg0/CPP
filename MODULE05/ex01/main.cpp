@@ -6,10 +6,12 @@ int	main(){
 		Bureaucrat	s("Mayro", 1);
 		Form		f("OK", 5, 17);
 
-		s.signForm(f);
-		l.signForm(f);
+	//	l.signForm(f);
 	//	f.beSigned(l);
+		f.beSigned(s);
+		Form g(f);
 		std::cout << l << std::endl;
+		std::cout << g << std::endl;
 		std::cout << s << std::endl;
 		std::cout << f << std::endl;
 	}

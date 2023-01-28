@@ -11,6 +11,10 @@ Form::Form(const Form &copy):name(copy.getName()), req_sign(copy.getReqSign()), 
 }
 
 Form::Form(std::string name, int req_sign, int req_exec):name(name), req_sign(req_sign), req_exec(req_exec){
+	if (req_exec < 1 || req_sign < 1)
+		throw	GradeTooHighException();
+	if (req_exec > 150 || req_sign > 150)
+		throw	GradeTooLowException();
 	is_sign = 0;
 	std::cout << "Constructor of Form called." << std::endl;
 }
@@ -62,7 +66,7 @@ Form::~Form(){
 
 std::ostream& operator<<(std::ostream& stream, const Form& fu)
 {
-    stream	<< "name: " << fu.getName() \
+    stream	<< "----Form---\nname: " << fu.getName() \
 			<< "\nis signed: " << fu.isSigned() \
 			<< "\nrequired grade to sign: " << fu.getReqSign() \
 			<< "\nrequired grade to execute: " << fu.getReqExec() << std::endl;

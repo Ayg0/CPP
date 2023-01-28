@@ -20,7 +20,7 @@ int	main(){
 		b->execute(s);
 		c->execute(s);
 		std::cout << "----------------------- delete ----------------------" << std::endl;
-		//delete d;
+		delete d;
 		delete a;
 		delete b;
 		delete c;

@@ -22,6 +22,7 @@ public:
 	int			getReqSign() const;
 	int			getReqExec() const;
 	bool		isSigned() const;
+
 	void		setIsSigned();
 	void		beSigned(class Bureaucrat &bu);
 	class GradeTooHighException : public std::exception{
