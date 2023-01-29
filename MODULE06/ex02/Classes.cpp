@@ -72,6 +72,8 @@ void	identify(Base& p){
 	std::cout << "--> It's an A." << '\n';
 }
 
+// desctuctors :
+
 Base::~Base(){
 	std::cout << "Desctructor of Base has been called" << std::endl;
 }
