@@ -7,7 +7,7 @@ class Array
 {
 private:
 	T 		*arr;
-	size_t	len;
+	unsigned int	len;
 public:
 	Array(){
 		arr = NULL;
@@ -23,22 +23,19 @@ public:
 	Array &operator=(Array &copy){
 		if (arr)
 			delete[] arr;
-		set_size(copy.size());
+		len = copy.size();
 		arr = new T[len];
-		for (size_t i = 0; i < len; i++)
+		for (unsigned int i = 0; i < len; i++)
 			arr[i] = copy[i];
 		return (*this);
 	}
-	T	&operator[](unsigned int index){
-		if (index >= len)
+	T	&operator[](long index){
+		if (index >= len || index < 0)
 			throw std::runtime_error("Exception: index is out of bounds.");
 		return (arr[index]);
 	}
-	size_t	size(void) const{
+	unsigned int	size(void) const{
 		return (len);
-	}
-	void	set_size(unsigned int n){
-		len = n;
 	}
 	~Array(){
 		delete arr;

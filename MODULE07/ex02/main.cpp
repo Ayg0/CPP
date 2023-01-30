@@ -5,6 +5,7 @@ int	main(){
 	{
 		Array<int>	l(5);
 		Array<int>	k(2);
+		
 
 		for (size_t i = 0; i < 5; i++)
 			l[i] = i;
