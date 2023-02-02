@@ -1,5 +1,5 @@
-NAME = find
-SRC = main.cpp
+NAME = span
+SRC = main.cpp Span.cpp
 OBJ = ${SRC:.cpp=.o}
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
