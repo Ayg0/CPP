@@ -19,6 +19,13 @@ class MutantStack : public std::stack<T>
 		iterator	end(){
 			return (this->c.end());
 		}
+		
+		const_iterator	cbegin(){
+			return (this->c.cbegin());
+		}
+		const_iterator	cend(){
+			return (this->c.cend());
+		}
 };
 
 # endif

@@ -8,6 +8,7 @@ template <typename T>
 void	easyfind(T &a, int i){
 	if (std::find(a.begin(), a.end(), i) == a.end())
 		throw std::runtime_error("Couldn't find the integer.");
+	std::cout << "Yeah it's there no worries" << std::endl;
 }
 
 # endif

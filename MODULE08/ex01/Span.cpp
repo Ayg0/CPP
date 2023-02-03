@@ -32,10 +32,10 @@ void Span::addNumber(int number){
 	vec.push_back(number);
 }
 
-void Span::insertElements(int *elements, unsigned long size){
-	if (vec.size() + size > max_len)
+void Span::insertElements(int *begin, int *end){
+	if ((vec.size() + (end - begin)) > max_len)
 		throw std::runtime_error("Max numbers will be exeeded can no add these elements");
-	vec.insert(vec.end(), elements, elements + size);
+	vec.insert(vec.end(), begin, end);
 }
 
 unsigned int Span::shortest_span(){
@@ -44,7 +44,7 @@ unsigned int Span::shortest_span(){
 
 	std::sort(tmp.begin(), tmp.end());
 	dis = tmp[1] - tmp[0];
-	for (unsigned int i = 1; i < max_len; i++)
+	for (unsigned int i = 1; i < tmp.size(); i++)
 		dis = dis * (dis <= (tmp[i] - tmp[i - 1])) + (tmp[i] - tmp[i - 1]) * (dis > (tmp[i] - tmp[i - 1]));
 	return (dis);
 }
@@ -52,7 +52,7 @@ unsigned int Span::shortest_span(){
 unsigned int Span::longest_span(){
 	std::vector<int> tmp = vec;
 	std::sort(tmp.begin(), tmp.end());
-	return (tmp[max_len - 1] - tmp[0]);
+	return (tmp[tmp.size() - 1] - tmp[0]);
 }
 
 Span::~Span(){
