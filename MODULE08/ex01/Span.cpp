@@ -39,9 +39,14 @@ void Span::insertElements(int *elements, unsigned long size){
 }
 
 unsigned int Span::shortest_span(){
-	std::vector<int> tmp = vec;
+	std::vector<int>	tmp = vec;
+	int					dis;
+
 	std::sort(tmp.begin(), tmp.end());
-	return (tmp[1] - tmp[0]);
+	dis = tmp[1] - tmp[0];
+	for (int i = 1; i < max_len; i++)
+		dis = dis * (dis <= (tmp[i] - tmp[i - 1])) + (tmp[i] - tmp[i - 1]) * (dis > (tmp[i] - tmp[i - 1]));
+	return (dis);
 }
 
 unsigned int Span::longest_span(){
