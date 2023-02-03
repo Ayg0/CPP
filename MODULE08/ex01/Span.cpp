@@ -44,7 +44,7 @@ unsigned int Span::shortest_span(){
 
 	std::sort(tmp.begin(), tmp.end());
 	dis = tmp[1] - tmp[0];
-	for (int i = 1; i < max_len; i++)
+	for (unsigned int i = 1; i < max_len; i++)
 		dis = dis * (dis <= (tmp[i] - tmp[i - 1])) + (tmp[i] - tmp[i - 1]) * (dis > (tmp[i] - tmp[i - 1]));
 	return (dis);
 }
