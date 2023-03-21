@@ -8,12 +8,11 @@ Entries::Entries(Entries &entries){
 }
 
 Entries &Entries::operator=(Entries &entries){
-	this->date = entries.date;
-	this->price = entries.price;
+	this->date_exchange = entries.date_exchange;
 	return (*this);
 }
 
-int	Entries::eval_date(std::string const &date){
+int	eval_date(std::string const &date){
 	char	*tmp;
 	std::tm	t;
 
@@ -24,18 +23,13 @@ int	Entries::eval_date(std::string const &date){
 	return (((t.tm_year + 1900) * 100 + (t.tm_mon + 1)) * 100 + t.tm_mday);
 }
 
-float	Entries::eval_price(std::string const &price){
-	size_t ind;
+float	eval_price(std::string const &price){
+	char	*ind;
 	float	res;
-	try{
-		res = stof(price, &ind);
-	}
-	catch(...){
+
+	res = std::strtod(price.c_str(), &ind);
+	if (*ind != '\0')
 		return (-1);
-	}
-	if (price[ind] != '\0'){
-		return (-1);
-	}
 	return (res);
 }
 
@@ -47,8 +41,7 @@ int	Entries::add_entry(std::string *data){
 	price = eval_price(data[1]);
 	if (date < 0 || price < 0)
 		return 1;
-	this->date.push_back(date);
-	this->price.push_back(price);
+	date_exchange[date] = price;
 	return (0);
 }
 

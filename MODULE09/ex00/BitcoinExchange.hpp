@@ -5,19 +5,18 @@
 # include <sstream>
 # include <cmath>
 # include <ctime>
-# include <vector>
+# include <map>
 
 class	Entries{
-	private:
-		std::vector<int>			date;
-		std::vector<float>			price;
 	public:
+		std::map<int, float>		date_exchange;
+
 		Entries();
 		Entries(Entries &entries);
 		Entries &operator=(Entries &entries);
-		int		eval_date(std::string const &date);
 		int		add_entry(std::string *data);
-		float	eval_price(std::string const &price);
 		~Entries();			
 };
+int		eval_date(std::string const &date);
+float	eval_price(std::string const &price);
 #endif
