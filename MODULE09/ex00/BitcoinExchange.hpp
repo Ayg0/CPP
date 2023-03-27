@@ -9,7 +9,7 @@
 
 class	Entries{
 	public:
-		std::map<int, float>		date_exchange;
+		std::map<int, float>	date_exchange;
 
 		Entries();
 		Entries(Entries &entries);
@@ -18,5 +18,5 @@ class	Entries{
 		~Entries();			
 };
 int		eval_date(std::string const &date);
-float	eval_price(std::string const &price);
+float	eval_price(std::string const &price, int &err_flag);
 #endif

@@ -5,6 +5,8 @@ int	parse_in(std::fstream &input, Entries &data){
 	int			i;
 
 	getline(input, line);
+	if (line != "date,exchange_rate")
+		return 1;
 	while(getline(input, line)){
 		std::stringstream	s(line);
 		i = 0;
@@ -17,45 +19,72 @@ int	parse_in(std::fstream &input, Entries &data){
 	return (0);
 }
 
+float	custom_lower_bound(std::map<int, float>::iterator begin, std::map<int, float>::iterator end, int date){
+	for (size_t i = 0; begin != end; i++)
+	{
+		if (begin->first > date){
+			if (i == 0 && begin->first != date)
+				return (-1);
+			if (i != 0)
+				begin--;
+			return (begin->second);
+		}
+		begin++, i++;
+	}
+	return ((--begin)->second);
+}
+
 int exec(Entries &data, std::fstream	&inputf){
 	std::string line, val[2];
-	int				i = 0;
-	int				date;
-	float			value;
-	std::map<int, float>::iterator it, end;
+	int			i, date, err_flag;
+	float		value, price;
+	
 
 	getline(inputf, line);
+	if (line != "date | value")
+		return -1;
 	while (getline(inputf, line))
 	{
 		std::stringstream	s(line);
 		i = 0;
+		err_flag = 0;
 		while (i < 2 && getline(s, val[i], '|'))
 			i++;
-		if (i == 3 || i < 2){
+		if (i != 2 || val[1].empty())
+			goto BAD_INPUT;
+		if (val[0].length() == 11 && val[0][10] == ' ')
+			val[0][10] = 0;
+		date = eval_date(val[0]);
+		if (date < 0)
+			goto BAD_INPUT;
+		value = eval_price(&val[1][(val[1][0] == ' ')], err_flag);
+		if (err_flag)
+			goto NOT_A_PURE_NUMBER;
+		if (value < 0)
+			goto NEGATIVE;
+		if (value > 1000)
+			goto TOO_BIG;
+		price = custom_lower_bound(data.date_exchange.begin(), data.date_exchange.end(), date);
+		if (price < 0)
+			goto NO_VALID_OPTION;
+		std::cout << val[0] << " => " << value << " = " << price * value << std::endl;
+		continue;
+	// ERRS
+		BAD_INPUT:
 			std::cerr << "Error: bad input => " << s.str() << std::endl;
 			continue;
-		}
-		if (val[0].length() == 11)
-			val[0][10] = 0;
-		if ((date = eval_date(val[0])) < 0){
-			std::cerr << "Error: Date Format." << std::endl;
-			continue;
-		}
-		if ((value = eval_price(val[1])) < 0){
+		NEGATIVE:
 			std::cerr << "Error: not a positive number." << std::endl;
 			continue;
-		}
-		if (value > 1000){
+		TOO_BIG:
 			std::cerr << "Error: too large a number." << std::endl;
 			continue;
-		}
-		it = data.date_exchange.find(date);
-		end = data.date_exchange.end();
-		if (it == end && (it = data.date_exchange.lower_bound(date)) == end){
+		NO_VALID_OPTION:
 			std::cerr << "Error: Couldn't find a valid value." << std::endl;
 			continue;
-		}
-		std::cout << val[0] << " => " << value << " = " << it->second * value << std::endl;
+		NOT_A_PURE_NUMBER:
+			std::cerr << "Error: not a pure number :" << val[1] << " ;" << std::endl;
+			continue;
 	}
 	return (0);
 }
@@ -72,7 +101,8 @@ int	main(int ac, char **av){
 		goto args;
 	if (parse_in(dataf, data))
 		goto parse_error;
-	exec(data, inputf);
+	if (exec(data, inputf))
+		goto header_error;
 	return (0);
 	// ERRS:
 	{
@@ -81,6 +111,9 @@ int	main(int ac, char **av){
 	return 1;
 	parse_error:
 		std::cerr << "Error: Parsing the Data file." << std::endl;
+	return 2;
+	header_error:
+		std::cerr << "Error: require 'date | value' ." << std::endl;
 	return 2;
 	}
 }
