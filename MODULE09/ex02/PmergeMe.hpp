@@ -5,14 +5,7 @@
 #include <vector>
 #include <deque>
 
-//template <typename	T>
-//void	insertion_sort(T arr){
-//	for (sizet i = 0; i < arr.size(); i++)
-//	{
-//		/* code */
-//	}
-	
-//}
+int	fill(char **av, std::vector<int> &vec, std::deque<int> &deq);
 
 template <typename	T>
 void	merge(T &arr, T const &left_arr, T const &right_arr){
